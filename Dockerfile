@@ -35,7 +35,7 @@ RUN GOARCH="$(xcputranslate translate -targetplatform=${TARGETPLATFORM} -field a
     -X 'main.version=$VERSION' \
     -X 'main.buildDate=$CREATED' \
     -X 'main.commit=$COMMIT' \
-    " -o app main.go
+    " -o editor main.go
 
 FROM --platform=amd64 alpine:${ALPINE_VERSION} AS stackedit
 ARG STACKEDIT_VERSION
