@@ -69,7 +69,7 @@ func _main(ctx context.Context, args []string) int {
 		urlStackeditPath := strings.TrimPrefix(r.URL.Path, rootURL)
 		filepath := "/dist/" + urlStackeditPath
 		switch urlStackeditPath {
-		case "/conf", "/app/conf":
+		case "/conf", "/editor/conf":
 			bytes := getAllStackeditEnv()
 			if _, err := w.Write(bytes); err != nil {
 				logger.Error(err)
@@ -81,16 +81,16 @@ func _main(ctx context.Context, args []string) int {
 			filepath = "/static/sitemap.xml"
 		case "/oauth2/callback":
 			filepath = "/static/oauth2/callback.html"
-		case "/app", "/app/":
+		case "/editor", "/editor/":
 			filepath = "/dist/index.html"
 		default:
 			switch {
 			case strings.HasPrefix(urlStackeditPath, "/static/css/static/fonts/"):
 				filepath = "/dist/" + strings.TrimPrefix(urlStackeditPath, "/static/css/")
-			case strings.HasPrefix(urlStackeditPath, "/app/static/css/static/fonts/"):
-				filepath = "/dist/" + strings.TrimPrefix(urlStackeditPath, "/app/static/css/")
-			case strings.HasPrefix(urlStackeditPath, "/app/"):
-				filepath = "/dist/" + strings.TrimPrefix(urlStackeditPath, "/app/")
+			case strings.HasPrefix(urlStackeditPath, "/editor/static/css/static/fonts/"):
+				filepath = "/dist/" + strings.TrimPrefix(urlStackeditPath, "/editor/static/css/")
+			case strings.HasPrefix(urlStackeditPath, "/editor/"):
+				filepath = "/dist/" + strings.TrimPrefix(urlStackeditPath, "/editor/")
 			}
 		}
 		http.ServeFile(w, r, "/html"+filepath)
