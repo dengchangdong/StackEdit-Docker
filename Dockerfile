@@ -39,7 +39,7 @@ RUN GOARCH="$(xcputranslate translate -targetplatform=${TARGETPLATFORM} -field a
 
 FROM --platform=amd64 alpine:${ALPINE_VERSION} AS stackedit
 ARG STACKEDIT_VERSION
-WORKDIR /stackedit
+WORKDIR /editor
 RUN apk add -q --progress --update --no-cache git npm python3 make g++
 RUN git clone --branch ${STACKEDIT_VERSION} --single-branch --depth 1 https://github.com/dengchangdong/StackEdit.git . &> /dev/null
 RUN npm install
@@ -80,6 +80,6 @@ ENV \
     GOOGLE_CLIENT_ID= \
     GOOGLE_API_KEY= \
     WORDPRESS_CLIENT_ID=
-COPY --from=stackedit --chown=1000 /stackedit/dist   /html/dist
-COPY --from=stackedit --chown=1000 /stackedit/static /html/static
+COPY --from=stackedit --chown=1000 /editor/dist   /html/dist
+COPY --from=stackedit --chown=1000 /editor/static /html/static
 COPY --from=server --chown=1000 /tmp/gobuild/app /server
