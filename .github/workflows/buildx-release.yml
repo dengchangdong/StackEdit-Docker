@@ -29,6 +29,6 @@ jobs:
             --build-arg CREATED=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
             --build-arg COMMIT=`git rev-parse --short HEAD` \
             --build-arg VERSION=${GITHUB_REF##*/} \
-            -t qmcgaw/stackedit:${GITHUB_REF##*/} \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/stackedit:${GITHUB_REF##*/} \
             --push \
             .
