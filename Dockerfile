@@ -41,7 +41,7 @@ FROM --platform=amd64 alpine:${ALPINE_VERSION} AS stackedit
 ARG STACKEDIT_VERSION
 WORKDIR /stackedit
 RUN apk add -q --progress --update --no-cache git npm python3 make g++
-RUN git clone --branch ${STACKEDIT_VERSION} --single-branch --depth 1 https://github.com/benweet/stackedit.git . &> /dev/null
+RUN git clone --branch ${STACKEDIT_VERSION} --single-branch --depth 1 https://github.com/dengchangdong/StackEdit.git . &> /dev/null
 RUN npm install
 ENV NODE_ENV=production
 RUN sed -i "s/assetsPublicPath: '\/',/assetsPublicPath: '.\/',/g" config/index.js
@@ -52,13 +52,13 @@ ARG CREATED
 ARG COMMIT
 ARG STACKEDIT_VERSION
 LABEL \
-    org.opencontainers.image.authors="quentin.mcgaw@gmail.com" \
+    org.opencontainers.image.authors="dengchangdong@gmail.com" \
     org.opencontainers.image.created=$CREATED \
     org.opencontainers.image.version=$STACKEDIT_VERSION \
     org.opencontainers.image.revision=$COMMIT \
-    org.opencontainers.image.url="https://github.com/qdm12/stackedit-docker" \
-    org.opencontainers.image.documentation="https://github.com/qdm12/stackedit-docker/blob/master/README.md" \
-    org.opencontainers.image.source="https://github.com/qdm12/stackedit-docker" \
+    org.opencontainers.image.url="https://github.com/dengchangdong/StackEdit-Docker" \
+    org.opencontainers.image.documentation="https://github.com/dengchangdong/StackEdit-Docker/blob/master/README.md" \
+    org.opencontainers.image.source="https://github.com/dengchangdong/StackEdit-Docker" \
     org.opencontainers.image.title="stackedit-docker" \
     org.opencontainers.image.description="StackEdit server in a lightweight Docker container"
 EXPOSE 8000
