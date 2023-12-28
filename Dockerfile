@@ -82,4 +82,4 @@ ENV \
     WORDPRESS_CLIENT_ID=
 COPY --from=stackedit --chown=1000 /editor/dist   /html/dist
 COPY --from=stackedit --chown=1000 /editor/static /html/static
-COPY --from=server --chown=1000 /tmp/gobuild/app /server
+COPY --from=server --chown=1000 /tmp/gobuild/editor /server
