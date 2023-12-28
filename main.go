@@ -38,7 +38,7 @@ func _main(ctx context.Context, args []string) int {
 	fmt.Println("########## StackEdit Server #########")
 	fmt.Println("########## by Quentin McGaw #########")
 	fmt.Println("########## Give some " + emoji.Sprint(":heart:") + " at ##########")
-	fmt.Println("# github.com/qdm12/stackedit-docker #")
+	fmt.Println("# github.com/dengchangdong/StackEdit-Docker #")
 	fmt.Print("#####################################\n\n")
 	envParams := params.NewEnvParams()
 	logger, err := logging.NewLogger(logging.ConsoleEncoding, logging.InfoLevel, -1)
