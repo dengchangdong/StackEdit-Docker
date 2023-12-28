@@ -1,4 +1,4 @@
-module github.com/qdm12/stackedit-docker
+module github.com/dengchangdong/StackEdit-Docker
 
 require (
 	github.com/kyokomi/emoji v2.2.4+incompatible
