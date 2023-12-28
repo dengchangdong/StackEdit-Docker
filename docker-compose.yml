@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   stackedit:
-    image: qmcgaw/stackedit
+    image: dengchangdong/stackedit
     container_name: stackedit
     environment:
       - LISTENING_PORT=8000
