@@ -14,6 +14,6 @@ jobs:
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v2.1.0
         env:
-          DOCKERHUB_USERNAME: qmcgaw
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_PASSWORD }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-          DOCKERHUB_REPOSITORY: dengchangdong/stackedit
+          DOCKERHUB_REPOSITORY: ${{ secrets.DOCKERHUB_PASSWORD }}/stackedit
